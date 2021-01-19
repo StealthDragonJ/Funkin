@@ -5,6 +5,7 @@
 	<SubTexture name="EASY0000" x="0" y="0" width="196" height="65"/>
 	<SubTexture name="HARD0000" x="206" y="0" width="211" height="67"/>
 	<SubTexture name="NORMAL0000" x="427" y="0" width="308" height="67"/>
+	<SubTexture name="VERY EASY0000" x="740" y="0" width="308" height="65"/> <!-- Note: manual edit -->
 	<SubTexture name="WEEK 40000" x="0" y="275" width="355" height="89"/>
 	<SubTexture name="WEEK10000" x="0" y="77" width="360" height="89"/>
 	<SubTexture name="WEEK1 select0000" x="0" y="77" width="360" height="89"/>

@@ -189,10 +189,10 @@ class FreeplayState extends MusicBeatState
 	{
 		curDifficulty += change;
 
-		if (curDifficulty < 0)
+		if (curDifficulty < -1)
 			curDifficulty = 2;
 		if (curDifficulty > 2)
-			curDifficulty = 0;
+			curDifficulty = -1;
 
 		#if !switch
 		intendedScore = Highscore.getScore(songs[curSelected], curDifficulty);
@@ -200,6 +200,9 @@ class FreeplayState extends MusicBeatState
 
 		switch (curDifficulty)
 		{
+			case -1:	
+				trace("TEST");
+				diffText.text = "VERY EASY";
 			case 0:
 				diffText.text = "EASY";
 			case 1:

@@ -23,18 +23,20 @@ class StoryMenuState extends MusicBeatState
 		['Bopeebo', 'Fresh', 'Dadbattle'],
 		['Spookeez', 'South'],
 		['Pico', 'Philly', "Blammed"],
-		['Satin-Panties', "High", "Milf"]
+		['Satin-Panties', "High", "Milf"],
+		['Cocoa', 'Eggnog', 'Winter-Horrorland']
 	];
 	var curDifficulty:Int = 1;
 
-	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true];
+	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true];
 
 	var weekCharacters:Array<Dynamic> = [
 		['dad', 'bf', 'gf'],
 		['dad', 'bf', 'gf'],
 		['spooky', 'bf', 'gf'],
 		['pico', 'bf', 'gf'],
-		['mom', 'bf', 'gf']
+		['mom', 'bf', 'gf'],
+		['parents-christmas', 'bf', 'gf']
 	];
 	var curWeek:Int = 0;
 
@@ -133,6 +135,10 @@ class StoryMenuState extends MusicBeatState
 					weekCharacterThing.y += 170;
 					weekCharacterThing.flipX = true;
 					weekCharacterThing.x -= 40;
+				case 'parents-christmas':
+					weekCharacterThing.x -= 600;
+					weekCharacterThing.setGraphicSize(Std.int(weekCharacterThing.width * 0.9));
+					weekCharacterThing.updateHitbox();
 			}
 
 			grpWeekCharacters.add(weekCharacterThing);
@@ -371,6 +377,18 @@ class StoryMenuState extends MusicBeatState
 		grpWeekCharacters.members[1].animation.play(weekCharacters[curWeek][1]);
 		grpWeekCharacters.members[2].animation.play(weekCharacters[curWeek][2]);
 		txtTracklist.text = "Tracks\n";
+
+		switch (grpWeekCharacters.members[0].animation.curAnim.name)
+		{
+			case 'parents-christmas':
+				grpWeekCharacters.members[0].offset.x = 250;
+				grpWeekCharacters.members[0].setGraphicSize(Std.int(grpWeekCharacters.members[0].width * 0.97));
+
+			default:
+				grpWeekCharacters.members[0].offset.x = 100;
+				grpWeekCharacters.members[0].setGraphicSize(Std.int(grpWeekCharacters.members[0].width * 1));
+				// grpWeekCharacters.members[0].updateHitbox();
+		}
 
 		var stringThing:Array<String> = weekData[curWeek];
 
